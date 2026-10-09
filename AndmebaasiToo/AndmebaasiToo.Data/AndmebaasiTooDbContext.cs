@@ -44,6 +44,7 @@ namespace AndmebaasiToo.Data
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
             configurationBuilder.Properties<DateTime>().HaveColumnType("datetime");
+            configurationBuilder.Properties<Guid>().HaveConversion<string>().HaveMaxLength(50);
         }
     }
 }

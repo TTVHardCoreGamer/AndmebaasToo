@@ -21,7 +21,7 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "Airlines",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Country = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
@@ -36,7 +36,7 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "Aircrafts",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ManufactureYear = table.Column<int>(type: "int", nullable: false),
                     Model = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     RegistrationNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
@@ -51,7 +51,7 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "Airports",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Code = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
                     Country = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
@@ -65,7 +65,7 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "Terminals",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Location = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Number = table.Column<int>(type: "int", nullable: false),
@@ -79,7 +79,7 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "Passengers",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     BirthDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     DocumentNumber = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
@@ -96,11 +96,11 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "Gates",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Location = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     MaxAircraftSize = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Number = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
-                    TerminalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TerminalId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                 },
                 constraints: table =>
                 {
@@ -117,13 +117,13 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "Employees",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     EmployeeNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Position = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Telephone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    TerminalId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    TerminalId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                 },
                 constraints: table =>
                 {
@@ -140,15 +140,15 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "Flights",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AircraftId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AirlineId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ArrivalAirportId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    AircraftId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    AirlineId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ArrivalAirportId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ArrivalTime = table.Column<DateTime>(type: "datetime", nullable: false),
-                    DepartureAirportId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DepartureAirportId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     DepartureTime = table.Column<DateTime>(type: "datetime", nullable: false),
                     FlightNumber = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
-                    GateId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GateId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                 },
                 constraints: table =>
                 {
@@ -189,9 +189,9 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "FlightRegistrations",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FlightId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PassengerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FlightId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    PassengerId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     RegistrationTime = table.Column<DateTime>(type: "datetime", nullable: false),
                     SeatNumber = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
                     TicketType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
@@ -217,8 +217,8 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "Baggages",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FlightRegistrationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FlightRegistrationId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     TagNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     Type = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Weight = table.Column<int>(type: "int", nullable: false),
@@ -238,9 +238,9 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "FlightEmployees",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FlightId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    EmployeeId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FlightId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Role = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                 },
                 constraints: table =>
@@ -264,9 +264,9 @@ namespace AndmebaasiToo.Data.Migrations
                 name: "FlightStatusChanges",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ChangeTime = table.Column<DateTime>(type: "datetime", nullable: false),
-                    FlightId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FlightId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Reason = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     Status = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                 },
